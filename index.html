@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Proposal</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe6e8;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 {
+            color: #ff4d6d;
+            font-size: 24px;
+        }
+        .buttons {
+            margin-top: 30px;
+            position: relative;
+            height: 60px;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+            margin-right: 15px;
+        }
+        #noBtn {
+            background-color: #cccccc;
+            color: #333;
+            position: absolute;
+        }
+        #result {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainCard">
+        <h1 id="question">Will you marry me? <br> Will you be my best friend?</h1>
+        <div class="buttons">
+            <button id="yesBtn" onclick="acceptOffer()">Yes</button>
+            <button id="noBtn" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+
+    <div class="container" id="result">
+        <h1>🎉 Congratulations! 🎉</h1>
+        <p style="font-size: 20px; color: #ff4d6d; font-weight: bold;">You are my best friend forever! ❤️</p>
+    </div>
+
+    <script>
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 50);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 50);
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function acceptOffer() {
+            document.getElementById('mainCard').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
